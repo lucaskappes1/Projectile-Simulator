@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="./JS/script.js" defer></script>
+
+    <title>Simulador de Projeteis</title>
+</head>
+<body>
+    <h1 align="center">Projectile Simulator</h1>
+    <form id="InputData">
+        <label for="xInput">initial velocity x (m/s):</label>
+        <input type="text" id="xInput" name="textoInput">
+        <br>
+        <label for="yInput">initial velocity y (m/s):</label>
+        <input type="text" id="yInput" name="textoInput">
+        <br>
+        <label for="gravityInput">gravity (m/s^2)</label>
+        <input type="text" id="gravityInput" name="textoInput">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="temporizador">
+        time: 
+    </div>
+    <canvas id="canvas" width="1280" height="768"></canvas>
+</body>
+</html>
