@@ -18,8 +18,6 @@ document.getElementById('InputData').addEventListener('submit', function(event) 
     startTimer = performance.now();
     Timer = startTimer;
     Begin(new Cannonball(10, 736, velcx, velcy, grav));
-    
-
 });
 
 function loadCannonballImage(callback) {
@@ -49,15 +47,14 @@ function Begin(bola) {
 }
 
 function drawDistanceLines() {
-    var startX = 10; // Posição inicial no eixo x
-    var endX = canvas.width - 50; // Posição final no eixo x
-    var startY = canvas.height - 20; // Posição no eixo y onde as linhas serão desenhadas
-    var smallLineInterval = 63; // Intervalo para linhas pequenas (100 metros)
-    var bigLineInterval = 315; // Intervalo para linhas maiores (500 metros)
+    var startX = 10; 
+    var endX = canvas.width - 50; 
+    var startY = canvas.height - 20; 
+    var smallLineInterval = 63; 
+    var bigLineInterval = 315; 
     var currentX = startX;
     var text = parseInt(0);
 
-    // Desenhar linhas pequenas a cada 100 metros
     while (currentX < endX) {
         ctx.beginPath();
         ctx.moveTo(currentX, startY - 10);
@@ -65,19 +62,8 @@ function drawDistanceLines() {
         ctx.stroke();
         ctx.closePath();
         ctx.fillText(text + 'm', currentX - 10, startY + 20);
-        text += 100
+        text += 100;
         currentX += smallLineInterval;
-    }
-
-    // Desenhar linhas maiores a cada 500 metros
-    currentX = startX;
-    while (currentX < endX) {
-        ctx.beginPath();
-        ctx.moveTo(currentX, startY - 20);
-        ctx.lineTo(currentX, startY);
-        ctx.stroke();
-        ctx.closePath();
-        currentX += bigLineInterval;
     }
 
     ctx.beginPath();
@@ -86,6 +72,24 @@ function drawDistanceLines() {
     ctx.fillText(ConvertPixettoMeter((canvas.width - startX)) + 'm', canvas.width - 30, startY + 20);
     ctx.stroke();
     ctx.closePath();
+
+    var startY = 10;
+    var endY = canvas.height - 50; 
+    var startX = canvas.width - 20; 
+    var smallLineInterval = 63; 
+    var bigLineInterval = 315; 
+    var currentY = startY;
+    text = parseInt(1200);
+    while (currentY < endY) {
+        ctx.beginPath();
+        ctx.moveTo(startY - 10, currentY);
+        ctx.lineTo(startY, currentY);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.fillText(text + 'm', startY, currentY + 3);
+        text -= 100;
+        currentY += smallLineInterval;
+    }
 
 }
 
